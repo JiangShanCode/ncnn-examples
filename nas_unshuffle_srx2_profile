@@ -1,0 +1,52 @@
+./benchncnn_profile  1 4 0 0 0 param=NAS_Unshuffle_srx2_360_640.ncnn.param shape=[640,360,3]       
+[0 Adreno (TM) 730]  queueC=0[3]  queueG=0[3]  queueT=0[3]
+[0 Adreno (TM) 730]  bugsbn1=1  bugbilz=0  bugcopc=0  bugihfa=0
+[0 Adreno (TM) 730]  fp16-p/s/a=1/1/1  int8-p/s/a=1/1/1
+[0 Adreno (TM) 730]  subgroup=64  basic/vote/ballot/shuffle=1/1/1/1
+[0 Adreno (TM) 730]  fp16-matrix-16_8_8/16_8_16/16_16_16=0/0/0
+loop_count = 1
+num_threads = 4
+powersave = 0
+gpu_device = 0
+cooling_down = 0
+Reorg                    pixelunshuffle_22                 68.28us    |
+Convolution              conv_0                           857.76us    |
+Split                    splitncnn_0                        0.36us    |
+Convolution              convrelu_0                      5530.83us    |
+Convolution              conv_2                          5498.91us    |
+BinaryOp                 add_0                            396.25us    |
+Split                    splitncnn_1                        0.42us    |
+Convolution              convrelu_1                      5538.80us    |
+Convolution              conv_4                          5496.51us    |
+BinaryOp                 add_1                            394.01us    |
+Split                    splitncnn_2                        0.36us    |
+Convolution              convrelu_2                      5501.15us    |
+Convolution              conv_6                          5542.45us    |
+BinaryOp                 add_2                            392.14us    |
+Split                    splitncnn_3                        0.36us    |
+Convolution              convrelu_3                      5518.96us    |
+Convolution              conv_8                          5536.88us    |
+BinaryOp                 add_3                            395.26us    |
+Split                    splitncnn_4                        0.36us    |
+Convolution              convrelu_4                      5527.81us    |
+Convolution              conv_10                         5557.14us    |
+BinaryOp                 add_4                            391.35us    |
+Split                    splitncnn_5                        0.42us    |
+Convolution              convrelu_5                      5526.51us    |
+Convolution              conv_12                         5536.56us    |
+BinaryOp                 add_5                            394.95us    |
+Split                    splitncnn_6                        0.42us    |
+Convolution              convrelu_6                      5507.40us    |
+Convolution              conv_14                         5521.98us    |
+BinaryOp                 add_6                            392.08us    |
+Split                    splitncnn_7                        0.36us    |
+Convolution              convrelu_7                      5508.13us    |
+Convolution              conv_16                         5477.81us    |
+BinaryOp                 add_7                            399.69us    |
+Convolution              conv_17                         5435.57us    |
+BinaryOp                 add_8                            394.48us    |
+Convolution              conv_18                         6515.21us    |
+PixelShuffle             pixelshuffle_20                  788.75us    |
+Convolution              conv_19                         5052.50us    |
+PixelShuffle             pixelshuffle_21                  424.38us    |
+NAS_Unshuffle_srx2_360_640.ncnn.param  min =  123.95  max =  123.95  avg =  123.95

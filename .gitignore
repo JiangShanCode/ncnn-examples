@@ -1,0 +1,7 @@
+.history/*
+
+build/*
+build-android-aarch64/*
+model/*
+
+*.png

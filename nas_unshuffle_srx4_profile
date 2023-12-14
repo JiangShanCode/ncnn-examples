@@ -1,0 +1,104 @@
+./benchncnn_profile 1 4 0 0 0 param=NAS_Unshuffle_srx4_180_320.ncnn.param shape=[320,180,3]
+[0 Adreno (TM) 730]  queueC=0[3]  queueG=0[3]  queueT=0[3]
+[0 Adreno (TM) 730]  bugsbn1=1  bugbilz=0  bugcopc=0  bugihfa=0
+[0 Adreno (TM) 730]  fp16-p/s/a=1/1/1  int8-p/s/a=1/1/1
+[0 Adreno (TM) 730]  subgroup=64  basic/vote/ballot/shuffle=1/1/1/1
+[0 Adreno (TM) 730]  fp16-matrix-16_8_8/16_8_16/16_16_16=0/0/0
+loop_count = 1
+num_threads = 4
+powersave = 0
+gpu_device = 0
+cooling_down = 0
+Reorg                    pixelunshuffle_24                 16.15us    |
+Convolution              conv_0                           268.18us    |
+Split                    splitncnn_0                        0.42us    |
+Convolution              convrelu_0                       885.00us    |
+Convolution              conv_2                           855.68us    |
+BinaryOp                 add_0                            101.56us    |
+Split                    splitncnn_1                        0.36us    |
+Convolution              convrelu_1                       858.07us    |
+Convolution              conv_4                           849.84us    |
+BinaryOp                 add_1                            102.50us    |
+Split                    splitncnn_2                        0.42us    |
+Convolution              convrelu_2                       863.49us    |
+Convolution              conv_6                           848.96us    |
+BinaryOp                 add_2                            193.02us    |
+Split                    splitncnn_3                        0.36us    |
+Convolution              convrelu_3                       938.54us    |
+Convolution              conv_8                           852.55us    |
+BinaryOp                 add_3                            106.77us    |
+Split                    splitncnn_4                        0.36us    |
+Convolution              convrelu_4                       853.33us    |
+Convolution              conv_10                          851.20us    |
+BinaryOp                 add_4                            104.43us    |
+Split                    splitncnn_5                        0.36us    |
+Convolution              convrelu_5                       855.94us    |
+Convolution              conv_12                          853.80us    |
+BinaryOp                 add_5                            105.36us    |
+Split                    splitncnn_6                        0.36us    |
+Convolution              convrelu_6                       857.66us    |
+Convolution              conv_14                          849.43us    |
+BinaryOp                 add_6                            106.51us    |
+Split                    splitncnn_7                        0.42us    |
+Convolution              convrelu_7                       852.08us    |
+Convolution              conv_16                          850.94us    |
+BinaryOp                 add_7                            105.10us    |
+Convolution              conv_17                          859.38us    |
+BinaryOp                 add_8                            105.78us    |
+Convolution              conv_18                         2396.61us    |
+PixelShuffle             pixelshuffle_21                  344.43us    |
+Convolution              conv_19                         9288.49us    |
+PixelShuffle             pixelshuffle_22                 1962.66us    |
+Convolution              conv_20                         7500.89us    |
+PixelShuffle             pixelshuffle_23                  448.96us    |
+NAS_Unshuffle_srx4_180_320.ncnn.param  min =   53.61  max =   53.61  avg =   53.61
+
+cupid:/data/local/tmp/JS/ncnn $ ./benchncnn_profile 1 4 0 -1 0 param=NAS_Unshuffle_srx4_180_320.ncnn.param shape=[320,180,3]                                                                                                                                                              
+loop_count = 1
+num_threads = 4
+powersave = 0
+gpu_device = -1
+cooling_down = 0  
+Reorg                    pixelunshuffle_24                  0.07ms    |     [320, 180,   3 *1] -> [160,  90,  12 *1]    
+Convolution              conv_0                             0.48ms    |     [160,  90,  12 *1] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Split                    splitncnn_0                        0.00ms    |
+Convolution              convrelu_0                         1.01ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_2                             0.99ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_0                              0.12ms    |
+Split                    splitncnn_1                        0.00ms    |
+Convolution              convrelu_1                         1.17ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_4                             0.98ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_1                              0.12ms    |
+Split                    splitncnn_2                        0.00ms    |
+Convolution              convrelu_2                         1.02ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_6                             0.98ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_2                              0.12ms    |
+Split                    splitncnn_3                        0.00ms    |
+Convolution              convrelu_3                         0.99ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_8                             1.00ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_3                              0.12ms    |
+Split                    splitncnn_4                        0.00ms    |
+Convolution              convrelu_4                         1.01ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_10                            1.13ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_4                              0.13ms    |
+Split                    splitncnn_5                        0.00ms    |
+Convolution              convrelu_5                         1.01ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_12                            0.98ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_5                              0.12ms    |
+Split                    splitncnn_6                        0.00ms    |
+Convolution              convrelu_6                         1.01ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_14                            1.02ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_6                              0.12ms    |
+Split                    splitncnn_7                        0.00ms    |
+Convolution              convrelu_7                         1.02ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+Convolution              conv_16                            0.99ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_7                              0.13ms    |
+Convolution              conv_17                            1.12ms    |     [160,  90,   6 *8] -> [160,  90,   6 *8]         kernel: 3 x 3     stride: 1 x 1
+BinaryOp                 add_8                              0.12ms    |
+Convolution              conv_18                            2.85ms    |     [160,  90,   6 *8] -> [160,  90,  24 *8]         kernel: 3 x 3     stride: 1 x 1
+PixelShuffle             pixelshuffle_21                    0.30ms    |     [160,  90,  24 *8] -> [320, 180,   6 *8]    
+Convolution              conv_19                           12.48ms    |     [320, 180,   6 *8] -> [320, 180,  24 *8]         kernel: 3 x 3     stride: 1 x 1
+PixelShuffle             pixelshuffle_22                    1.13ms    |     [320, 180,  24 *8] -> [640, 360,   6 *8]    
+Convolution              conv_20                           12.83ms    |     [640, 360,   6 *8] -> [640, 360,   3 *4]         kernel: 3 x 3     stride: 1 x 1
+PixelShuffle             pixelshuffle_23                    0.24ms    |     [640, 360,   3 *4] -> [1280, 720,   3 *1]   
+NAS_Unshuffle_srx4_180_320.ncnn.param  min =   50.32  max =   50.32  avg =   50.32
